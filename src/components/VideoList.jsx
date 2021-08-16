@@ -1,10 +1,15 @@
+// import App from './components/App.js';
+import exampleVideoData from '/src/data/exampleVideoData.js';
+import VideoListEntry from 'VideoListEntry.jsx';
+
 var VideoList = () => (
   <div className="video-list">
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+    <div><h5><em>{exampleVideoData[0].snippet.title}</em><img src={exampleVideoData[0].snippet.thumbnails.default.url}/></h5></div>
+    <div><h5><em>{exampleVideoData[1].snippet.title}</em> <img src={exampleVideoData[1].snippet.thumbnails.default.url}/></h5></div>
+    <div><h5><em>{exampleVideoData[2].snippet.title}</em> <img src={exampleVideoData[2].snippet.thumbnails.default.url}/></h5></div>
+    <div><h5><em>{exampleVideoData[3].snippet.title}</em> <img src={exampleVideoData[3].snippet.thumbnails.default.url}/></h5></div>
+    <div><h5><em>{exampleVideoData[4].snippet.title}</em> <img src={exampleVideoData[4].snippet.thumbnails.default.url}/></h5></div>
+    <VideoListEntry />
   </div>
 );
 
