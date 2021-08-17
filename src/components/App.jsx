@@ -17,12 +17,18 @@ class App extends React.Component {
           description: null,
         }
       },
+      value: ''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
-  getVideos(query) {
-    searchYouTube(query, (data) => this.setState({videoList: data, currentVideo: data[0]}));
+  handleSubmit(value) {
+    // this.setState(prevState => ({
+    //   isToggleOn: !prevState.isToggleOn
+    // }));
+    this.setState({value});
+    console.log('value', value);
+    searchYouTube(value, (data) => this.setState({videoList: data, currentVideo: data[0]}));
   }
 
 
@@ -31,7 +37,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>Search</em><Search /></h5></div>
+            <div><h5><em>Search</em><Search onSubmit={this.handleSubmit} /></h5></div>
           </div>
         </nav>
         <div className="row">
@@ -47,7 +53,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    searchYouTube('javascript', (data) => this.setState({videoList: data, currentVideo: data[0]}));
+    searchYouTube('react', (data) => this.setState({videoList: data, currentVideo: data[0]}));
   }
 
 
